@@ -1,33 +1,141 @@
-{{ define "main" }}
-<article class="first-entry home-info">
-    <header class="entry-header">
-        <h1>{{ .Site.Params.homeInfoParams.Title | default .Site.Title }}</h1>
-    </header>
-    <div class="entry-content">
-        {{ .Site.Params.homeInfoParams.Content | default "" }}
+{{- define "main" }}
+
+{{/* 首页欢迎区域 */}}
+<div class="first-entry">
+    <h1>{{ .Site.Params.homeInfoParams.Title | default "欢迎来到XDG088的博客" }}</h1>
+    <p class="entry-content">{{ .Site.Params.homeInfoParams.Content | default "分享技术见解，记录学习历程" }}</p>
+</div>
+
+{{/* 最新文章列表 */}}
+<div class="posts-list">
+    <h2 style="margin-bottom: 2rem; color: #333;">最新文章</h2>
+    
+    {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{- $pages = $pages | first 10 }}
+    
+    {{- if not $pages }}
+    <div style="text-align: center; padding: 2rem; color: #999;">
+        <p>暂无文章</p>
     </div>
-    <footer class="entry-footer">
-        <div class="social-icons">
-            <!-- 这里可以添加社交图标 -->
+    {{- else }}
+    
+    {{- range $index, $page := $pages }}
+    <article class="post-entry{{ if eq $index 0 }} first-entry-home{{ end }}">
+        <header class="entry-header">
+            <h2>
+                <a href="{{ .Permalink }}" aria-label="post link to {{ .Title | plainify }}">
+                    {{ .Title }}
+                </a>
+            </h2>
+        </header>
+        
+        {{- if (and .Site.Params.ShowReadingTime (not .Params.disableReadingTime)) }}
+        <div class="entry-meta">
+            <span title='{{ .Date.Format "2006-01-02 15:04:05" }}'>
+                {{ .Date.Format "2006年01月02日" }}
+            </span>
+            {{- with .Params.tags }}
+            <span class="entry-tags">
+                {{- range . }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">#{{ . }}</a>
+                {{- end }}
+            </span>
+            {{- end }}
         </div>
-    </footer>
-</article>
-
-{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
-{{- $pages = $pages | first 10 }}
-
-{{- range $pages }}
-<article class="post-entry"> 
-    <header class="entry-header">
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    </header>
-    <div class="entry-content">
-        <p>{{ .Summary }}</p>
+        {{- end }}
+        
+        {{- $isHidden := .Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList | default false }}
+        {{- if (and .Params.cover.image (not $isHidden)) }}
+        <div class="entry-cover">
+            <img loading="lazy" src="{{ .Params.cover.image | absURL }}" alt="{{ .Params.cover.alt | default .Title }}">
+        </div>
+        {{- end }}
+        
+        <div class="entry-content">
+            <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+        </div>
+        
+        <footer class="entry-footer">
+            <span>{{ .ReadingTime }}分钟阅读</span>
+            {{- if .Params.tags }}
+            <span class="entry-tags">
+                标签: 
+                {{- range $index, $tag := .Params.tags }}
+                {{- if gt $index 0 }}, {{ end }}
+                <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize }}/">{{ $tag }}</a>
+                {{- end }}
+            </span>
+            {{- end }}
+        </footer>
+    </article>
+    {{- end }}
+    
+    {{- end }}
+    
+    {{/* 查看所有文章链接 */}}
+    {{- if gt (len $pages) 5 }}
+    <div style="text-align: center; margin-top: 3rem;">
+        <a href="{{ "/posts/" | relLangURL }}" style="display: inline-block; padding: 0.75rem 1.5rem; background-color: #0066cc; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">
+            查看所有文章 →
+        </a>
     </div>
-    <footer class="entry-footer">
-        <span>{{ .Date.Format "2006-01-02" }}</span>
-    </footer>
-</article>
+    {{- end }}
+</div>
+
 {{- end }}
-{{ end }} 
+
+{{/* 添加一些额外的样式 */}}
+<style>
+.first-entry-home {
+    border: 2px solid #0066cc !important;
+    background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+}
+
+.entry-meta {
+    margin: 0.5rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.entry-tags a {
+    color: #0066cc;
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.entry-tags a:hover {
+    text-decoration: underline;
+}
+
+.entry-cover {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.entry-cover img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    #menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .first-entry h1 {
+        font-size: 2rem;
+    }
+    
+    .main {
+        padding: 1rem;
+    }
+}
+</style> 
