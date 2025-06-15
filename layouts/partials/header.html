@@ -1,0 +1,15 @@
+{{- if .Site.Params.header.enable }}
+<header class="header">
+    <div class="header-title">
+        <a href="{{ .Site.Home.RelPermalink }}">
+            {{- if .Site.Params.header.title }}
+            {{- with .Site.Params.header.title }}
+            {{- . }}
+            {{- end }}
+            {{- else }}
+            {{- .Site.Title }}
+            {{- end }}
+        </a>
+    </div>
+</header>
+{{- end }} 

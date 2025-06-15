@@ -3,3 +3,16 @@ baseURL       = "http://localhost:1313/"
 languageCode  = "zh-CN"
 title         = "XGD088的博客"
 theme         = "PaperMod"
+
+[params]
+  ShowToc = true
+  TocOpen = true
+  TocLabel = "目录"
+  ShowReadingTime = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowFullTextinRSS = true
+  ShowShareButtons = false
+  ShowRssButtonInSectionTermList = false
+  header = { enable = true, title = "XGD088的博客" }
+

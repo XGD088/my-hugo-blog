@@ -1,0 +1,88 @@
+.toc {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 300px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: var(--entry);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.toc details {
+    border: none;
+}
+
+.toc summary {
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.toc .inner {
+    padding-left: 1rem;
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.toc li {
+    margin: 0.3rem 0;
+}
+
+.toc a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.toc a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 1200px) {
+    .toc {
+        display: none;
+    }
+}
+
+/* 网站标题样式 */
+.header {
+    padding: 1.5rem 0;
+    border-bottom: none;
+    text-align: center;
+}
+
+.header-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.header-title a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.header-title a:hover {
+    color: var(--secondary);
+}
+
+/* 隐藏底部社交图标 */
+.post-footer {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* 优化文章内容区域 */
+.post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+} 
