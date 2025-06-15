@@ -1,0 +1,33 @@
+{{ define "main" }}
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>{{ .Site.Params.homeInfoParams.Title | default .Site.Title }}</h1>
+    </header>
+    <div class="entry-content">
+        {{ .Site.Params.homeInfoParams.Content | default "" }}
+    </div>
+    <footer class="entry-footer">
+        <div class="social-icons">
+            <!-- 这里可以添加社交图标 -->
+        </div>
+    </footer>
+</article>
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
+{{- $pages = $pages | first 10 }}
+
+{{- range $pages }}
+<article class="post-entry"> 
+    <header class="entry-header">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    </header>
+    <div class="entry-content">
+        <p>{{ .Summary }}</p>
+    </div>
+    <footer class="entry-footer">
+        <span>{{ .Date.Format "2006-01-02" }}</span>
+    </footer>
+</article>
+{{- end }}
+{{ end }} 

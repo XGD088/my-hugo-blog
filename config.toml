@@ -4,6 +4,9 @@ languageCode  = "zh-CN"
 title         = "XDG088的博客"
 theme         = "PaperMod"
 
+# 主要内容类型
+mainSections = ["posts"]
+
 # 确保正确的输出格式
 [outputs]
 home = ["HTML", "RSS", "JSON"]
