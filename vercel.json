@@ -1,7 +1,24 @@
 {
+  "version": 2,
   "build": {
     "env": {
-      "HUGO_VERSION": "0.147.8"
+      "HUGO_VERSION": "0.119.0",
+      "NODE_VERSION": "18"
     }
-  }
+  },
+  "buildCommand": "hugo --gc --minify --cleanDestinationDir",
+  "outputDirectory": "./public",
+  "installCommand": "echo 'No install needed for Hugo'",
+  "functions": {},
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
 } 
