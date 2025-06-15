@@ -7,11 +7,9 @@ theme         = "PaperMod"
 # 主要内容类型
 mainSections = ["posts"]
 
-# 只输出HTML，禁用RSS和JSON
+# 只禁用首页的RSS，其他页面保持默认
 [outputs]
 home = ["HTML"]
-page = ["HTML"]
-section = ["HTML"]
 
 # 生产环境配置
 [production]
