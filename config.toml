@@ -4,17 +4,6 @@ languageCode  = "zh-CN"
 title         = "XDG088的博客"
 theme         = "PaperMod"
 
-# 输出格式配置 - HTML优先，RSS次之
-[outputs]
-  home = ["HTML", "RSS"]
-  page = ["HTML"]
-  section = ["HTML", "RSS"]
-  
-[outputFormats]
-  [outputFormats.RSS]
-    baseName = "index"
-    mediaType = "application/rss+xml"
-
 # 生产环境配置
 [production]
   baseURL = "https://my-hugo-blog-wu-mingyangs-projects.vercel.app/"
