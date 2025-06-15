@@ -1,5 +1,5 @@
 # 站点基本信息
-baseURL       = "https://my-hugo-blog-wu-mingyangs-projects.vercel.app/"
+baseURL       = "https://xgd088.com/"
 languageCode  = "zh-CN"
 title         = "XDG088的博客"
 theme         = "PaperMod"
@@ -13,7 +13,7 @@ home = ["HTML"]
 
 # 生产环境配置
 [production]
-  baseURL = "https://my-hugo-blog-wu-mingyangs-projects.vercel.app/"
+  baseURL = "https://xgd088.com/"
 
 # 开发环境配置
 [development]
