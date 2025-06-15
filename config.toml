@@ -1,8 +1,15 @@
 # 站点基本信息
-baseURL       = "https://my-hugo-blog-wu-mingyangs-projects.vercel.app/"  # 修改为您的 Vercel 域名
 languageCode  = "zh-CN"
 title         = "XDG088的博客"
 theme         = "PaperMod"
+
+# 生产环境配置
+[production]
+  baseURL = "https://my-hugo-blog-wu-mingyangs-projects.vercel.app/"  # 修改为您的 Vercel 域名
+
+# 开发环境配置
+[development]
+  baseURL = "http://localhost:1313/"
 
 [params]
   ShowToc = true
@@ -27,13 +34,7 @@ theme         = "PaperMod"
     wrap = true
     expand = true
 
-# 生产环境配置
-[production]
-  baseURL = "https://xdg088.vercel.app/"  # 修改为您的 Vercel 域名
 
-# 开发环境配置
-[development]
-  baseURL = "http://localhost:1313/"
 
 [menu]
   [[menu.main]]
