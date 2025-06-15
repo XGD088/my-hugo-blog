@@ -4,6 +4,12 @@ languageCode  = "zh-CN"
 title         = "XDG088的博客"
 theme         = "PaperMod"
 
+# 输出格式配置
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+
 # 生产环境配置
 [production]
   baseURL = "https://my-hugo-blog-wu-mingyangs-projects.vercel.app/"
@@ -25,6 +31,11 @@ theme         = "PaperMod"
   ShowBreadCrumbs = true
   ShowPostNavLinks = true
   header = { enable = false }
+  
+  # 首页模式设置
+  [params.homeInfoParams]
+    Title = "欢迎来到XDG088的博客"
+    Content = "为世界的明天出一份力。"
   
   # 目录配置
   [params.toc]
