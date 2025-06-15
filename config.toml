@@ -19,7 +19,7 @@ theme         = "PaperMod"
   ShowReadingTime = true
   ShowCodeCopyButtons = true
   ShowWordCount = true
-  ShowFullTextinRSS = true
+  ShowFullTextinRSS = false
   ShowShareButtons = false
   ShowRssButtonInSectionTermList = false
   ShowBreadCrumbs = true
@@ -34,8 +34,6 @@ theme         = "PaperMod"
     number = true
     wrap = true
     expand = true
-
-
 
 [menu]
   [[menu.main]]
