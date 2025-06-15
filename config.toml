@@ -4,9 +4,9 @@ languageCode  = "zh-CN"
 title         = "XDG088的博客"
 theme         = "PaperMod"
 
-# 输出格式配置 - 明确HTML优先
+# 输出格式配置 - HTML优先，RSS次之
 [outputs]
-  home = ["HTML"]
+  home = ["HTML", "RSS"]
   page = ["HTML"]
   section = ["HTML", "RSS"]
   
