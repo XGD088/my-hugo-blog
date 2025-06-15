@@ -4,11 +4,16 @@ languageCode  = "zh-CN"
 title         = "XDG088的博客"
 theme         = "PaperMod"
 
-# 输出格式配置
+# 输出格式配置 - 明确HTML优先
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML"]
   page = ["HTML"]
   section = ["HTML", "RSS"]
+  
+[outputFormats]
+  [outputFormats.RSS]
+    baseName = "index"
+    mediaType = "application/rss+xml"
 
 # 生产环境配置
 [production]
