@@ -2,11 +2,7 @@
 date = '2025-06-15T22:51:35+08:00'
 draft = false
 title = 'JP摩根如何用LangGraph构建投资AI Agent'
-toc = true
-tocOpen = true
-tocLabel = "目录"
 +++
-#Agent #讲座 #金融
 
 原始视频地址： https://www.youtube.com/watch?v=yMalr0jiOAc
 
@@ -49,7 +45,7 @@ tocLabel = "目录"
 
 
 
-## **未来图景 **
+## 未来图景
 ![未来图景](/images/posts/agent-jpmorgan/20250615175828.png)
 
 
@@ -63,9 +59,7 @@ tocLabel = "目录"
 
 他们将问题提交给：
 
-### 中间核心系统：
-
-### **Ask D.A.V.I.D.**（一个 AI 驱动的智能助手平台）
+### 中间核心系统：**Ask D.A.V.I.D.**（一个 AI 驱动的智能助手平台）
 
 
 ### 右侧输出由多智能体（Agents）完成，包括下列目标：

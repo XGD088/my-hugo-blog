@@ -1,12 +1,12 @@
 # 站点基本信息
 baseURL       = "http://localhost:1313/"
 languageCode  = "zh-CN"
-title         = "XGD088的博客"
+title         = "XDG088的博客"
 theme         = "PaperMod"
 
 [params]
   ShowToc = true
-  TocOpen = true
+  TocOpen = false
   TocLabel = "目录"
   ShowReadingTime = true
   ShowCodeCopyButtons = true
@@ -14,5 +14,33 @@ theme         = "PaperMod"
   ShowFullTextinRSS = true
   ShowShareButtons = false
   ShowRssButtonInSectionTermList = false
-  header = { enable = true, title = "XGD088的博客" }
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  header = { enable = false }
+  
+  # 目录配置
+  [params.toc]
+    enable = true
+    keepStatic = false
+    auto = true
+    number = true
+    wrap = true
+    expand = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 2
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 3
 
