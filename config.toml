@@ -4,6 +4,10 @@ languageCode  = "zh-CN"
 title         = "XDG088的博客"
 theme         = "PaperMod"
 
+# 确保正确的输出格式
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
 # 生产环境配置
 [production]
   baseURL = "https://my-hugo-blog-wu-mingyangs-projects.vercel.app/"
@@ -13,6 +17,9 @@ theme         = "PaperMod"
   baseURL = "http://localhost:1313/"
 
 [params]
+  # 明确设置PaperMod模式
+  mode = "home-info" # 或者可以尝试 "regular" 
+  
   ShowToc = true
   TocOpen = false
   TocLabel = "目录"
