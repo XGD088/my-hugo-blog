@@ -4,49 +4,13 @@
       "HUGO_VERSION": "0.147.8"
     }
   },
-  "routes": [
-    {
-      "src": "^/$",
-      "dest": "/index.html",
-      "headers": {
-        "Content-Type": "text/html; charset=utf-8"
-      }
-    },
-    {
-      "src": "^/rss/?$",
-      "dest": "/index.xml",
-      "headers": {
-        "Content-Type": "application/rss+xml; charset=utf-8"
-      }
-    },
-    {
-      "src": "^/feed/?$",
-      "dest": "/index.xml",
-      "headers": {
-        "Content-Type": "application/rss+xml; charset=utf-8"
-      }
-    }
-  ],
   "headers": [
     {
-      "source": "/index.html",
+      "source": "/",
       "headers": [
         {
           "key": "Content-Type",
           "value": "text/html; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/index.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/rss+xml; charset=utf-8"
         }
       ]
     }
